@@ -27,14 +27,16 @@ public class AstronautChildRetrieve {
                 int id = Integer.parseInt(rs.getString("astronaut_id"));
                 String fName = rs.getString("astronaut_fname");
                 String lName = rs.getString("astronaut_lname");
-                String dob = rs.getString("astronaut_fname");
+                String dob = rs.getString("astronaut_dob");
                 String country = rs.getString("astronaut_country");
                 String gender = rs.getString("astronaut_gender");
-                Astronaut astronaut = new Astronaut.Builder(id, fName, lName).dateOfBirth(dob).country(country).build();
+
+                Astronaut astronaut = new Astronaut.Builder(id, fName, lName).
+                        dateOfBirth(dob).gender(gender).country(country).build();
                 astronauts.add(astronaut);
             }
 
-            for(Astronaut astronaut: astronauts){
+            for (Astronaut astronaut : astronauts) {
                 System.out.println(astronaut);
             }
 
