@@ -69,6 +69,19 @@ public class Astronaut {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Astronaut)) return false;
+        Astronaut astronaut = (Astronaut) o;
+        return getId() == astronaut.getId() &&
+                getFirstName().equals(astronaut.getFirstName()) &&
+                getLastName().equals(astronaut.getLastName()) &&
+                Objects.equals(getDateOfBirth(), astronaut.getDateOfBirth()) &&
+                Objects.equals(getCountry(), astronaut.getCountry()) &&
+                Objects.equals(getGender(), astronaut.getGender());
+    }
+
+    @Override
     public int hashCode() {
         return Objects.hash(getId(), getFirstName(), getLastName(), getDateOfBirth(), getCountry(), getGender());
     }
