@@ -30,7 +30,7 @@ public class AstronautChildRetrieve {
                 String dob = rs.getString("astronaut_fname");
                 String country = rs.getString("astronaut_country");
                 String gender = rs.getString("astronaut_gender");
-                Astronaut astronaut = new Astronaut.Builder(id, fName, lName).country(country).build();
+                Astronaut astronaut = new Astronaut.Builder(id, fName, lName).dateOfBirth(dob).country(country).build();
                 astronauts.add(astronaut);
             }
 

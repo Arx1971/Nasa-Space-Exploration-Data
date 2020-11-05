@@ -112,13 +112,6 @@ public class Astronaut {
             this.lastName = lastName;
         }
 
-        public Builder firstName(String firstName) {
-            return this;
-        }
-
-        public Builder lastName(String lastName) {
-            return this;
-        }
 
         public Builder dateOfBirth(String dateOfBirth) {
             return this;
