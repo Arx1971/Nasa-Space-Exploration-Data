@@ -1,7 +1,5 @@
 package com.data.connection.test;
 
-import com.astronaut.space.jdbc.dao.databaseGateway;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,11 +7,11 @@ import java.sql.Statement;
 
 public class Main {
 
-    private static databaseGateway Gateway;
+    private static com.astronaut.space.jdbc.dao.Gateway Gateway;
 
     public static void main(String[] args) {
         try {
-            Connection connection = databaseGateway.getDBConnection();
+            Connection connection = com.astronaut.space.jdbc.dao.Gateway.getDBConnection();
             System.out.println("Connection Established . . .");
 
             Statement statement = connection.createStatement();
