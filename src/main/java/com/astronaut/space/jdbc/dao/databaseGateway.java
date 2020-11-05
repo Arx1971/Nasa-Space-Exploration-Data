@@ -22,5 +22,4 @@ public class databaseGateway {
         }
         return dbConnection;
     }
-
 }
