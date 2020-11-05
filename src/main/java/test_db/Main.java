@@ -12,16 +12,8 @@ public class Main {
 
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
-            Statement statement = connection.createStatement();
-            String query = "select * from astronaut_child_info";
 
-            ResultSet rs = statement.executeQuery(query);
-
-            System.out.println(rs);
-
-            while (rs.next()) {
-                System.out.println(rs.getString("astronaut_child_name"));
-            }
+            System.out.println("Connection Established. . . ");
 
         } catch (SQLException throwable) {
             throwable.printStackTrace();
