@@ -1,4 +1,4 @@
-package com.astronaut.space.jdbc.dao;
+package com.astronaut.space.jdbc.dao.connection.manager;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

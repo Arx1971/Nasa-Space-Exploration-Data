@@ -7,11 +7,11 @@ import java.sql.Statement;
 
 public class Main {
 
-    private static com.astronaut.space.jdbc.dao.Gateway Gateway;
+    private static com.astronaut.space.jdbc.dao.connection.manager.Gateway Gateway;
 
     public static void main(String[] args) {
         try {
-            Connection connection = com.astronaut.space.jdbc.dao.Gateway.getDBConnection();
+            Connection connection = com.astronaut.space.jdbc.dao.connection.manager.Gateway.getDBConnection();
             System.out.println("Connection Established . . .");
 
             Statement statement = connection.createStatement();
