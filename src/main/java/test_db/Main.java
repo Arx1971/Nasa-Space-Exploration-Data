@@ -18,7 +18,6 @@ public class Main {
         } catch (SQLException throwable) {
             throwable.printStackTrace();
         }
-
     }
 
 }

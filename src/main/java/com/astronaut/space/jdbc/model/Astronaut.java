@@ -11,14 +11,13 @@ public class Astronaut {
     private String country;
     private String gender;
 
-
-    public Astronaut(int id, String firstName, String lastName, String dateOfBirth, String country, String gender) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.dateOfBirth = dateOfBirth;
-        this.country = country;
-        this.gender = gender;
+    private Astronaut(Builder builder) {
+        this.id = builder.id;
+        this.firstName = builder.firstName;
+        this.lastName = builder.lastName;
+        this.dateOfBirth = builder.dateOfBirth;
+        this.country = builder.country;
+        this.gender = builder.gender;
     }
 
     public int getId() {
@@ -70,19 +69,6 @@ public class Astronaut {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Astronaut)) return false;
-        Astronaut astronaut = (Astronaut) o;
-        return getId() == astronaut.getId() &&
-                Objects.equals(getFirstName(), astronaut.getFirstName()) &&
-                Objects.equals(getLastName(), astronaut.getLastName()) &&
-                Objects.equals(getDateOfBirth(), astronaut.getDateOfBirth()) &&
-                Objects.equals(getCountry(), astronaut.getCountry()) &&
-                Objects.equals(getGender(), astronaut.getGender());
-    }
-
-    @Override
     public int hashCode() {
         return Objects.hash(getId(), getFirstName(), getLastName(), getDateOfBirth(), getCountry(), getGender());
     }
@@ -97,5 +83,45 @@ public class Astronaut {
                 ", country='" + country + '\'' +
                 ", gender='" + gender + '\'' +
                 '}';
+    }
+
+    public static class Builder {
+        private final int id;
+        private final String firstName;
+        private final String lastName;
+        private String dateOfBirth;
+        private String country;
+        private String gender;
+
+        public Builder(int id, String firstName, String lastName) {
+            this.id = id;
+            this.firstName = firstName;
+            this.lastName = lastName;
+        }
+
+        public Builder firstName(String firstName) {
+            return this;
+        }
+
+        public Builder lastName(String lastName) {
+            return this;
+        }
+
+        public Builder dateOfBirth(String dateOfBirth) {
+            return this;
+        }
+
+        public Builder country(String country) {
+            return this;
+        }
+
+        public Builder gender(String gender) {
+            return this;
+        }
+
+        public Astronaut build() {
+            return new Astronaut(this);
+        }
+
     }
 }
