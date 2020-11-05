@@ -1,0 +1,64 @@
+package com.astronaut.space.jdbc.model;
+
+import java.util.Objects;
+
+public class AstronautChildInfo {
+
+    private int childId;
+    private String childName;
+    private int astronautId;
+
+    public AstronautChildInfo(int childId, String childName, int astronautId) {
+        this.childId = childId;
+        this.childName = childName;
+        this.astronautId = astronautId;
+    }
+
+    public int getChildId() {
+        return childId;
+    }
+
+    public void setChildId(int childId) {
+        this.childId = childId;
+    }
+
+    public String getChildName() {
+        return childName;
+    }
+
+    public void setChildName(String childName) {
+        this.childName = childName;
+    }
+
+    public int getAstronautId() {
+        return astronautId;
+    }
+
+    public void setAstronautId(int astronautId) {
+        this.astronautId = astronautId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof AstronautChildInfo)) return false;
+        AstronautChildInfo that = (AstronautChildInfo) o;
+        return getChildId() == that.getChildId() &&
+                getAstronautId() == that.getAstronautId() &&
+                getChildName().equals(that.getChildName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getChildId(), getChildName(), getAstronautId());
+    }
+
+    @Override
+    public String toString() {
+        return "AstronautChildInfo{" +
+                "childId=" + childId +
+                ", childName='" + childName + '\'' +
+                '}';
+    }
+
+}
