@@ -1,5 +1,7 @@
 package com.astronaut.space.jdbc.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Astronaut {
@@ -11,6 +13,8 @@ public class Astronaut {
     private String country;
     private String gender;
 
+    private List<AstronautChildInfo> astronautChildInfos = new ArrayList<>();
+
     private Astronaut(Builder builder) {
         this.id = builder.id;
         this.firstName = builder.firstName;
@@ -18,6 +22,7 @@ public class Astronaut {
         this.dateOfBirth = builder.dateOfBirth;
         this.country = builder.country;
         this.gender = builder.gender;
+        this.astronautChildInfos = builder.astronautChildInfos;
     }
 
     public int getId() {
@@ -68,6 +73,14 @@ public class Astronaut {
         this.gender = gender;
     }
 
+    public List<AstronautChildInfo> getAstronautChildInfos() {
+        return astronautChildInfos;
+    }
+
+    public void setAstronautChildInfos(List<AstronautChildInfo> astronautChildInfos) {
+        this.astronautChildInfos = astronautChildInfos;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -105,6 +118,7 @@ public class Astronaut {
         private String dateOfBirth;
         private String country;
         private String gender;
+        private List<AstronautChildInfo> astronautChildInfos;
 
         public Builder(int id, String firstName, String lastName) {
             this.id = id;
@@ -124,6 +138,11 @@ public class Astronaut {
 
         public Builder gender(String gender) {
             this.gender = gender;
+            return this;
+        }
+
+        public Builder astronautChildrenInfo(List<AstronautChildInfo> astronautChildInfos) {
+            this.astronautChildInfos = astronautChildInfos;
             return this;
         }
 
