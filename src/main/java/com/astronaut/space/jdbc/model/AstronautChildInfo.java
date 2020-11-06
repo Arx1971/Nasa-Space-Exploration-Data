@@ -61,4 +61,20 @@ public class AstronautChildInfo {
                 '}';
     }
 
+    public static class Builder {
+        private int childId;
+        private String childName;
+
+        public Builder childId(int childId) {
+            this.childId = childId;
+            return this;
+        }
+
+        public Builder childName(String childName) {
+            this.childName = childName;
+            return this;
+        }
+
+    }
+
 }

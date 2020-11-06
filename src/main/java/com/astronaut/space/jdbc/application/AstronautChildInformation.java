@@ -12,11 +12,12 @@ public class AstronautChildInformation {
     public static void main(String[] args) {
 
         try {
+            int id = 9;
             Connection connection = Gateway.getDBConnection();
             Statement statement = connection.createStatement();
             String sql = "select astronaut_child_name\n" +
                     "from astronaut_info, astronaut_child_info\n" +
-                    "where astronaut_info.astronaut_id = 9 and\n" +
+                    "where astronaut_info.astronaut_id = " + Integer.toString(id) + " and\n" +
                     "astronaut_info.astronaut_id = astronaut_child_info.astronaut_id;";
 
             ResultSet rs = statement.executeQuery(sql);
