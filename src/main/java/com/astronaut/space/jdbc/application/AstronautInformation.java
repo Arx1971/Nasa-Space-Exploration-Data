@@ -10,7 +10,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AstronautChildRetrieve {
+public class AstronautInformation {
 
     public static void main(String[] args) {
 
