@@ -13,7 +13,7 @@ public class Astronaut {
     private String country;
     private String gender;
 
-    private List<AstronautChildInfo> astronautChildInfos = new ArrayList<>();
+    private List<AstronautChildInfo> astronautChildInfos;
 
     private Astronaut(Builder builder) {
         this.id = builder.id;
