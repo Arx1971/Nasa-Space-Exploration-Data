@@ -65,7 +65,7 @@ public class ServiceApi implements ApiInterface {
         try {
             Connection connection = Gateway.getDBConnection();
             Statement statement = connection.createStatement();
-            String sql = "select astronaut_child_name\n" +
+            String sql = "select astronaut_child_id, astronaut_child_name\n" +
                     "from astronaut_info, astronaut_child_info\n" +
                     "where astronaut_info.astronaut_id = " + Integer.toString(id) + " and\n" +
                     "astronaut_info.astronaut_id = astronaut_child_info.astronaut_id;";
@@ -73,7 +73,11 @@ public class ServiceApi implements ApiInterface {
             ResultSet rs = statement.executeQuery(sql);
 
             while (rs.next()) {
-                rs.getString("astronaut_child_name");
+                int childId = Integer.parseInt(rs.getString("astronaut_child_id"));
+                String childName = rs.getString("astronaut_child_name");
+                AstronautChildInfo astronautChildInfo = new AstronautChildInfo.Builder().
+                        childId(childId).childName(childName).build();
+                astronautChildInfos.add(astronautChildInfo);
             }
 
             connection.close();

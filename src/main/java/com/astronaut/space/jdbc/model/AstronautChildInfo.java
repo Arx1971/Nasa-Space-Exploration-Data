@@ -8,10 +8,9 @@ public class AstronautChildInfo {
     private String childName;
     private int astronautId;
 
-    public AstronautChildInfo(int childId, String childName, int astronautId) {
-        this.childId = childId;
-        this.childName = childName;
-        this.astronautId = astronautId;
+    public AstronautChildInfo(Builder builder) {
+        this.childId = builder.childId;
+        this.childName = builder.childName;
     }
 
     public int getChildId() {
@@ -73,6 +72,10 @@ public class AstronautChildInfo {
         public Builder childName(String childName) {
             this.childName = childName;
             return this;
+        }
+
+        public AstronautChildInfo build() {
+            return new AstronautChildInfo(this);
         }
 
     }

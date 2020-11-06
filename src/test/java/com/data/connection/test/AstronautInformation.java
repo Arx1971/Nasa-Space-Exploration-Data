@@ -1,4 +1,4 @@
-package com.astronaut.space.jdbc.application;
+package com.data.connection.test;
 
 import com.astronaut.space.jdbc.dao.connection.manager.Gateway;
 import com.astronaut.space.jdbc.model.Astronaut;
