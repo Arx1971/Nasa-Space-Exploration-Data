@@ -29,7 +29,6 @@ public class AstronautChildInformation {
 
         } catch (SQLException e) {
             e.printStackTrace();
-
         }
     }
 }
