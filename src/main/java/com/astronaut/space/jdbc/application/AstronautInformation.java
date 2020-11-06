@@ -2,6 +2,7 @@ package com.astronaut.space.jdbc.application;
 
 import com.astronaut.space.jdbc.dao.connection.manager.Gateway;
 import com.astronaut.space.jdbc.model.Astronaut;
+import com.astronaut.space.jdbc.model.AstronautChildInfo;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
