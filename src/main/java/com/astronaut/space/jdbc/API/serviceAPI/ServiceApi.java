@@ -13,11 +13,9 @@ import java.util.List;
 
 public class ServiceApi implements ApiInterface {
 
-    private Connection connection;
-
     public ServiceApi() {
         try {
-            connection = Gateway.getDBConnection();
+            Connection connection = Gateway.getDBConnection();
         } catch (SQLException e) {
             e.printStackTrace();
         }
