@@ -1,15 +1,13 @@
 package com.astronaut.space.jdbc.API.serviceAPI;
 
 import com.astronaut.space.jdbc.dao.connection.manager.Gateway;
-import com.astronaut.space.jdbc.model.Astronaut;
-import com.astronaut.space.jdbc.model.AstronautChildInfo;
+import com.astronaut.space.jdbc.model.*;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class ServiceApi implements ApiInterface {
 
@@ -85,6 +83,72 @@ public class ServiceApi implements ApiInterface {
             e.printStackTrace();
         }
         return astronautChildInfos;
+    }
+
+    @Override
+    public List<Astronaut> getAllAstronautsEductionDetails() {
+
+        final Map<Integer, Astronaut> astronauts = new HashMap<>();
+
+
+        try {
+            Connection connection = Gateway.getDBConnection();
+            Statement statement = connection.createStatement();
+            String sql = "select astronaut_info.astronaut_id,\n" +
+                    "astronaut_info.astronaut_fname,\n" +
+                    "astronaut_info.astronaut_lname,\n" +
+                    "university_info.university_name,\n" +
+                    "degree_info.degree_name\n" +
+                    "from astronaut_info,\n" +
+                    "university_info,\n" +
+                    "degree_info,\n" +
+                    "astronaut_education_info\n" +
+                    "where astronaut_info.astronaut_id = astronaut_education_info.astronaut_id\n" +
+                    "and degree_info.degree_id = astronaut_education_info.degree_id\n" +
+                    "and university_info.university_id = astronaut_education_info.university_id;\n";
+
+            ResultSet rs = statement.executeQuery(sql);
+
+            while (rs.next()) {
+                int id = Integer.parseInt(rs.getString("astronaut_id"));
+                String fName = rs.getString("astronaut_fname");
+                String lName = rs.getString("astronaut_lname");
+                String universityName = rs.getString("university_name");
+                String degreeName = rs.getString("degree_name");
+                Astronaut astronaut = new Astronaut();
+                astronaut.setId(id);
+                astronaut.setFirstName(fName);
+                astronaut.setLastName(lName);
+                List<AstronautEductionInfo> astronautEductionInfos = new ArrayList<>();
+                List<UniversityInfo> universityInfos = new ArrayList<>();
+                List<DegreeInfo> degreeInfos = new ArrayList<>();
+                UniversityInfo universityInfo = new UniversityInfo();
+                universityInfo.setUniversityName(universityName);
+                DegreeInfo degreeInfo = new DegreeInfo();
+                degreeInfo.setDegreeName(degreeName);
+                degreeInfos.add(degreeInfo);
+                AstronautEductionInfo astronautEductionInfo = new AstronautEductionInfo();
+                astronautEductionInfo.setDegreeInfos(degreeInfos);
+                astronautEductionInfo.setUniversityInfos(universityInfos);
+                astronautEductionInfos.add(astronautEductionInfo);
+                astronaut.setAstronautEductionInfos(astronautEductionInfos);
+
+                if (astronauts.containsKey(id)) {
+                    astronauts.get(id).getAstronautEductionInfos().add(astronautEductionInfo);
+                } else astronauts.put(id, astronaut);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        final List<Astronaut> list = new ArrayList<>();
+
+        for (Integer a : astronauts.keySet()) {
+            list.add(astronauts.get(a));
+        }
+
+        return list;
     }
 
 }

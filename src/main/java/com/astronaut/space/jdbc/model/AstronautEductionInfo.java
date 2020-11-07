@@ -44,4 +44,12 @@ public class AstronautEductionInfo {
         this.degreeInfos = degreeInfos;
     }
 
+    @Override
+    public String toString() {
+        return "AstronautEductionInfo{" +
+                "id=" + id +
+                ", universityInfos=" + universityInfos +
+                ", degreeInfos=" + degreeInfos +
+                '}';
+    }
 }

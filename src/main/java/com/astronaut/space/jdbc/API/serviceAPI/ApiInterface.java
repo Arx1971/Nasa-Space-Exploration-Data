@@ -11,5 +11,6 @@ public interface ApiInterface {
 
     public List<AstronautChildInfo> getAstronautChildById(int id);
 
+    public List<Astronaut> getAllAstronautsEductionDetails();
 
 }

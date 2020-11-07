@@ -12,7 +12,7 @@ public class Main {
 
         ServiceApi serviceApi = new ServiceApi();
 
-        List<AstronautChildInfo> astronautChildInfos = serviceApi.getAstronautChildById(9);
+        /*List<AstronautChildInfo> astronautChildInfos = serviceApi.getAstronautChildById(9);
 
         System.out.println(astronautChildInfos);
 
@@ -22,6 +22,12 @@ public class Main {
 
         for (Astronaut astronaut : astronauts) {
             System.out.println(astronaut.getAstronautChildInfos());
+        }*/
+
+        List<Astronaut> astronauts = serviceApi.getAllAstronautsEductionDetails();
+
+        for (Astronaut astronaut : astronauts) {
+            System.out.println(astronaut);
         }
 
     }

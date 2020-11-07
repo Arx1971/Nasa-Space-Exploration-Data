@@ -13,7 +13,26 @@ public class Astronaut {
     private String country;
     private String gender;
 
+    private List<AstronautEductionInfo> astronautEductionInfos;
+
     private List<AstronautChildInfo> astronautChildInfos;
+
+    public Astronaut() {
+
+    }
+
+    public Astronaut(int id, String firstName,
+                     String lastName, String dateOfBirth, String country, String gender,
+                     List<AstronautEductionInfo> astronautEductionInfos, List<AstronautChildInfo> astronautChildInfos) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dateOfBirth = dateOfBirth;
+        this.country = country;
+        this.gender = gender;
+        this.astronautEductionInfos = astronautEductionInfos;
+        this.astronautChildInfos = astronautChildInfos;
+    }
 
     private Astronaut(Builder builder) {
         this.id = builder.id;
@@ -23,6 +42,7 @@ public class Astronaut {
         this.country = builder.country;
         this.gender = builder.gender;
         this.astronautChildInfos = builder.astronautChildInfos;
+        this.astronautEductionInfos = builder.astronautEductionInfos;
     }
 
     public int getId() {
@@ -81,6 +101,15 @@ public class Astronaut {
         this.astronautChildInfos = astronautChildInfos;
     }
 
+    public List<AstronautEductionInfo> getAstronautEductionInfos() {
+        return astronautEductionInfos;
+    }
+
+    public void setAstronautEductionInfos(List<AstronautEductionInfo> astronautEductionInfos) {
+        this.astronautEductionInfos = astronautEductionInfos;
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -108,6 +137,8 @@ public class Astronaut {
                 ", dateOfBirth='" + dateOfBirth + '\'' +
                 ", country='" + country + '\'' +
                 ", gender='" + gender + '\'' +
+                ", astronautEductionInfos=" + astronautEductionInfos +
+                ", astronautChildInfos=" + astronautChildInfos +
                 '}';
     }
 
@@ -119,6 +150,7 @@ public class Astronaut {
         private String country;
         private String gender;
         private List<AstronautChildInfo> astronautChildInfos;
+        private List<AstronautEductionInfo> astronautEductionInfos;
 
         public Builder(int id, String firstName, String lastName) {
             this.id = id;
@@ -143,6 +175,11 @@ public class Astronaut {
 
         public Builder astronautChildrenInfo(List<AstronautChildInfo> astronautChildInfos) {
             this.astronautChildInfos = astronautChildInfos;
+            return this;
+        }
+
+        public Builder astronautEductionInfos(List<AstronautEductionInfo> astronautEductionInfos) {
+            this.astronautEductionInfos = astronautEductionInfos;
             return this;
         }
 
