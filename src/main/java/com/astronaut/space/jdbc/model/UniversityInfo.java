@@ -53,4 +53,20 @@ public class UniversityInfo {
                 ", universityName='" + universityName + '\'' +
                 '}';
     }
+
+    public static class Builder {
+        private int id;
+        private String universityName;
+
+        public Builder id(int id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder universityName(String universityName) {
+            this.universityName = universityName;
+            return this;
+        }
+    }
+
 }

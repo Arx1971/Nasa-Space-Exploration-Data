@@ -8,12 +8,12 @@ public class DegreeInfo {
     private String degreeName;
 
     public DegreeInfo() {
-        
+
     }
 
-    public DegreeInfo(int id, String degreeName) {
-        this.id = id;
-        this.degreeName = degreeName;
+    public DegreeInfo(Builder builder) {
+        this.id = builder.id;
+        this.degreeName = builder.degreeName;
     }
 
     public int getId() {
@@ -53,4 +53,20 @@ public class DegreeInfo {
     public int hashCode() {
         return Objects.hash(getId(), getDegreeName());
     }
+
+    public static class Builder {
+        private int id;
+        String degreeName;
+
+        public Builder id(int id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder degreeName(String degreeName) {
+            this.degreeName = degreeName;
+            return this;
+        }
+    }
+
 }
