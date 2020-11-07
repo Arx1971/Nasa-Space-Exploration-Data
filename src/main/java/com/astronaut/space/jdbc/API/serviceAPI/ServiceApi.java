@@ -89,7 +89,7 @@ public class ServiceApi implements ApiInterface {
     @Override
     public List<Astronaut> getAllAstronautsEductionDetails() {
 
-        final Map<Integer, Astronaut> astronauts = new HashMap<>();
+        Map<Integer, Astronaut> astronauts = new HashMap<>();
 
         try {
             Connection connection = Gateway.getDBConnection();
@@ -115,18 +115,19 @@ public class ServiceApi implements ApiInterface {
                 String lName = rs.getString("astronaut_lname");
                 String universityName = rs.getString("university_name");
                 String degreeName = rs.getString("degree_name");
+
                 Astronaut astronaut = new Astronaut.Builder(id, fName, lName).build();
                 List<AstronautEductionInfo> astronautEductionInfos = new ArrayList<>();
                 List<UniversityInfo> universityInfoList = new ArrayList<>();
                 List<DegreeInfo> degreeInfoList = new ArrayList<>();
+
                 UniversityInfo universityInfo = new UniversityInfo();
                 universityInfo.setUniversityName(universityName);
                 DegreeInfo degreeInfo = new DegreeInfo.Builder().degreeName(degreeName).build();
-
                 degreeInfoList.add(degreeInfo);
+
                 AstronautEductionInfo astronautEductionInfo = new AstronautEductionInfo.Builder().
                         DegreeInfo(degreeInfoList).UniversityInfo(universityInfoList).build();
-
                 astronautEductionInfos.add(astronautEductionInfo);
                 astronaut.setAstronautEductionInfos(astronautEductionInfos);
 
@@ -139,7 +140,7 @@ public class ServiceApi implements ApiInterface {
             e.printStackTrace();
         }
 
-        final List<Astronaut> list = new ArrayList<>();
+        List<Astronaut> list = new ArrayList<>();
 
         for (Integer a : astronauts.keySet()) {
             list.add(astronauts.get(a));
