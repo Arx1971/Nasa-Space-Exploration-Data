@@ -1,4 +1,4 @@
-package com.astronaut.space.jdbc.API.ServiceInterface;
+package com.astronaut.space.jdbc.API.apiInterface;
 
 import com.astronaut.space.jdbc.model.Astronaut;
 import com.astronaut.space.jdbc.model.AstronautChildInfo;

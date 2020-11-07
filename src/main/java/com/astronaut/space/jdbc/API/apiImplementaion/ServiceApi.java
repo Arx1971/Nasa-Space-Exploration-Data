@@ -1,6 +1,6 @@
-package com.astronaut.space.jdbc.API.serviceAPI;
+package com.astronaut.space.jdbc.API.apiImplementaion;
 
-import com.astronaut.space.jdbc.API.ServiceInterface.ApiInterface;
+import com.astronaut.space.jdbc.API.apiInterface.ApiInterface;
 import com.astronaut.space.jdbc.dao.connection.manager.Gateway;
 import com.astronaut.space.jdbc.model.*;
 

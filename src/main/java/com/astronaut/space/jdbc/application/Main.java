@@ -1,8 +1,7 @@
 package com.astronaut.space.jdbc.application;
 
-import com.astronaut.space.jdbc.API.serviceAPI.ServiceApi;
+import com.astronaut.space.jdbc.API.apiImplementaion.ServiceApi;
 import com.astronaut.space.jdbc.model.Astronaut;
-import com.astronaut.space.jdbc.model.AstronautChildInfo;
 
 import java.util.List;
 
