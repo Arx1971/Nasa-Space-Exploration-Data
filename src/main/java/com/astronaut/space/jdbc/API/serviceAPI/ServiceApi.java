@@ -40,8 +40,11 @@ public class ServiceApi implements ApiInterface {
                 String country = rs.getString("astronaut_country");
                 String gender = rs.getString("astronaut_gender");
 
+                List<AstronautChildInfo> astronautChildInfos = getAstronautChildById(id);
+
                 Astronaut astronaut = new Astronaut.Builder(id, fName, lName).
-                        dateOfBirth(dob).gender(gender).country(country).build();
+                        dateOfBirth(dob).gender(gender).country(country).
+                        astronautChildrenInfo(astronautChildInfos).build();
                 astronauts.add(astronaut);
             }
 
@@ -77,8 +80,6 @@ public class ServiceApi implements ApiInterface {
                         childId(childId).childName(childName).build();
                 astronautChildInfos.add(astronautChildInfo);
             }
-
-            connection.close();
 
         } catch (SQLException e) {
             e.printStackTrace();
