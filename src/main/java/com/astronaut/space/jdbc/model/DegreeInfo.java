@@ -67,6 +67,10 @@ public class DegreeInfo {
             this.degreeName = degreeName;
             return this;
         }
+
+        public DegreeInfo build() {
+            return new DegreeInfo(this);
+        }
     }
 
 }

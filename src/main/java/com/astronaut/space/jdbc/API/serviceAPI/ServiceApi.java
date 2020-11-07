@@ -1,5 +1,6 @@
 package com.astronaut.space.jdbc.API.serviceAPI;
 
+import com.astronaut.space.jdbc.API.ServiceInterface.ApiInterface;
 import com.astronaut.space.jdbc.dao.connection.manager.Gateway;
 import com.astronaut.space.jdbc.model.*;
 
@@ -90,7 +91,6 @@ public class ServiceApi implements ApiInterface {
 
         final Map<Integer, Astronaut> astronauts = new HashMap<>();
 
-
         try {
             Connection connection = Gateway.getDBConnection();
             Statement statement = connection.createStatement();
@@ -115,21 +115,18 @@ public class ServiceApi implements ApiInterface {
                 String lName = rs.getString("astronaut_lname");
                 String universityName = rs.getString("university_name");
                 String degreeName = rs.getString("degree_name");
-                Astronaut astronaut = new Astronaut();
-                astronaut.setId(id);
-                astronaut.setFirstName(fName);
-                astronaut.setLastName(lName);
+                Astronaut astronaut = new Astronaut.Builder(id, fName, lName).build();
                 List<AstronautEductionInfo> astronautEductionInfos = new ArrayList<>();
-                List<UniversityInfo> universityInfos = new ArrayList<>();
-                List<DegreeInfo> degreeInfos = new ArrayList<>();
+                List<UniversityInfo> universityInfoList = new ArrayList<>();
+                List<DegreeInfo> degreeInfoList = new ArrayList<>();
                 UniversityInfo universityInfo = new UniversityInfo();
                 universityInfo.setUniversityName(universityName);
-                DegreeInfo degreeInfo = new DegreeInfo();
-                degreeInfo.setDegreeName(degreeName);
-                degreeInfos.add(degreeInfo);
-                AstronautEductionInfo astronautEductionInfo = new AstronautEductionInfo();
-                astronautEductionInfo.setDegreeInfos(degreeInfos);
-                astronautEductionInfo.setUniversityInfos(universityInfos);
+                DegreeInfo degreeInfo = new DegreeInfo.Builder().degreeName(degreeName).build();
+
+                degreeInfoList.add(degreeInfo);
+                AstronautEductionInfo astronautEductionInfo = new AstronautEductionInfo.Builder().
+                        DegreeInfo(degreeInfoList).UniversityInfo(universityInfoList).build();
+
                 astronautEductionInfos.add(astronautEductionInfo);
                 astronaut.setAstronautEductionInfos(astronautEductionInfos);
 

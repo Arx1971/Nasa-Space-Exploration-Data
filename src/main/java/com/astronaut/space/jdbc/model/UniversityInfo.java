@@ -7,9 +7,9 @@ public class UniversityInfo {
     private int id;
     private String universityName;
 
-    public UniversityInfo(int id, String universityName) {
-        this.id = id;
-        this.universityName = universityName;
+    public UniversityInfo(Builder builder) {
+        this.id = builder.id;
+        this.universityName = builder.universityName;
     }
 
     public UniversityInfo() {
@@ -67,6 +67,11 @@ public class UniversityInfo {
             this.universityName = universityName;
             return this;
         }
+
+        public UniversityInfo build() {
+            return new UniversityInfo(this);
+        }
+
     }
 
 }
