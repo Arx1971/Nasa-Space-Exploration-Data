@@ -121,8 +121,8 @@ public class ServiceApi implements ApiInterface {
                 List<UniversityInfo> universityInfoList = new ArrayList<>();
                 List<DegreeInfo> degreeInfoList = new ArrayList<>();
 
-                UniversityInfo universityInfo = new UniversityInfo();
-                universityInfo.setUniversityName(universityName);
+                UniversityInfo universityInfo = new UniversityInfo.Builder().universityName(universityName).build();
+                universityInfoList.add(universityInfo);
                 DegreeInfo degreeInfo = new DegreeInfo.Builder().degreeName(degreeName).build();
                 degreeInfoList.add(degreeInfo);
 
