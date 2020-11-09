@@ -1,7 +1,5 @@
 package com.astronaut.space.jdbc.model;
 
-import sun.jvm.hotspot.gc.shared.Space;
-
 public class MissionInfo {
 
     private int id;
@@ -18,6 +16,14 @@ public class MissionInfo {
         this.missionObjectiveInfo = builder.missionObjectiveInfo;
         this.spaceShipInfo = builder.spaceShipInfo;
         this.missionDistance = builder.missionDistance;
+    }
+
+    public double getMissionDistance() {
+        return missionDistance;
+    }
+
+    public void setMissionDistance(double missionDistance) {
+        this.missionDistance = missionDistance;
     }
 
     public MissionInfo() {
@@ -70,6 +76,7 @@ public class MissionInfo {
                 "id=" + id +
                 ", missionName='" + missionName + '\'' +
                 ", destinationName='" + destinationName + '\'' +
+                ", missionDistance=" + missionDistance +
                 ", missionObjectiveInfo=" + missionObjectiveInfo +
                 ", spaceShipInfo=" + spaceShipInfo +
                 '}';
