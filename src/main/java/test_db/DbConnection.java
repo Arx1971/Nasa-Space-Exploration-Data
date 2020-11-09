@@ -36,8 +36,8 @@ public class DbConnection {
 
             }
 
-        } catch (SQLException throwable) {
-            throwable.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
