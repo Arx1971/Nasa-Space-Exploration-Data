@@ -82,7 +82,7 @@ public class MissionLandingSite {
         }
 
         public Builder landingSiteName(String landingSiteName) {
-            this.ladingSiteCity = landingSiteName;
+            this.landingSiteName = landingSiteName;
             return this;
         }
 
@@ -101,7 +101,7 @@ public class MissionLandingSite {
             return this;
         }
 
-        public MissionLandingSite build(Builder builder) {
+        public MissionLandingSite build() {
             return new MissionLandingSite(this);
         }
 
