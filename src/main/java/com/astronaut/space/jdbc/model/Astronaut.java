@@ -18,7 +18,6 @@ public class Astronaut {
     private List<AstronautChildInfo> astronautChildInfos;
 
     public Astronaut() {
-
     }
 
     public Astronaut(int id, String firstName,

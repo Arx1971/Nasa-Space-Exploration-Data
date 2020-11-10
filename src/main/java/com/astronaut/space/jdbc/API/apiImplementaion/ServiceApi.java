@@ -149,4 +149,16 @@ public class ServiceApi implements ApiInterface {
         return list;
     }
 
+    @Override
+    public List<Astronaut> getAstronautMissionMileageInformation() {
+
+        List<Astronaut> astronauts = new ArrayList<>();
+
+
+
+
+        return astronauts;
+
+    }
+
 }

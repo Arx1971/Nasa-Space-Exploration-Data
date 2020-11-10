@@ -13,5 +13,5 @@ public interface ApiInterface {
 
     public List<Astronaut> getAllAstronautsEductionDetails();
 
-
+    public List<Astronaut> getAstronautMissionMileageInformation();
 }
