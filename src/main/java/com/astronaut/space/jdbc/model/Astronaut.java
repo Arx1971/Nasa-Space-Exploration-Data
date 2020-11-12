@@ -13,6 +13,8 @@ public class Astronaut {
     private String country;
     private String gender;
 
+    private MissionDetails missionDetails;
+
     private List<AstronautEductionInfo> astronautEductionInfos;
 
     private List<AstronautChildInfo> astronautChildInfos;

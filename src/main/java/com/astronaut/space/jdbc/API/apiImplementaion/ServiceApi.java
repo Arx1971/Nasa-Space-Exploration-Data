@@ -14,7 +14,7 @@ public class ServiceApi implements ApiInterface {
 
     public ServiceApi() {
         try {
-            Connection connection = Gateway.getDBConnection();
+            Gateway.getDBConnection();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -153,8 +153,6 @@ public class ServiceApi implements ApiInterface {
     public List<Astronaut> getAstronautMissionMileageInformation() {
 
         List<Astronaut> astronauts = new ArrayList<>();
-
-
 
 
         return astronauts;
