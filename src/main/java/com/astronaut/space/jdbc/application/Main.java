@@ -23,10 +23,16 @@ public class Main {
             System.out.println(astronaut.getAstronautChildInfos());
         }*/
 
-        List<Astronaut> astronauts = serviceApi.getAllAstronautsEductionDetails();
+        /*List<Astronaut> astronauts = serviceApi.getAllAstronautsEductionDetails();
 
         for (Astronaut astronaut : astronauts) {
             System.out.println(astronaut);
+        }*/
+
+        List<Object[]> list = serviceApi.getAstronautMissionMileageInformation();
+
+        for (Object obj : list) {
+            System.out.println(obj);
         }
 
     }

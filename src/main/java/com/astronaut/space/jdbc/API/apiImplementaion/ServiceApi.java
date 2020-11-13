@@ -12,9 +12,11 @@ import java.util.*;
 
 public class ServiceApi implements ApiInterface {
 
+    private Connection connection = null;
+
     public ServiceApi() {
         try {
-            Gateway.getDBConnection();
+            connection = Gateway.getDBConnection();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -25,7 +27,6 @@ public class ServiceApi implements ApiInterface {
         List<Astronaut> astronauts = new ArrayList<>();
 
         try {
-            Connection connection = Gateway.getDBConnection();
             Statement statement = connection.createStatement();
             String query = "select * from astronaut_info";
 
@@ -63,7 +64,6 @@ public class ServiceApi implements ApiInterface {
         List<AstronautChildInfo> astronautChildInfos = new ArrayList<>();
 
         try {
-            Connection connection = Gateway.getDBConnection();
             Statement statement = connection.createStatement();
             String sql = "select astronaut_child_id, astronaut_child_name\n" +
                     "from astronaut_info, astronaut_child_info\n" +
@@ -92,7 +92,6 @@ public class ServiceApi implements ApiInterface {
         Map<Integer, Astronaut> astronauts = new HashMap<>();
 
         try {
-            Connection connection = Gateway.getDBConnection();
             Statement statement = connection.createStatement();
             String sql = "select astronaut_info.astronaut_id,\n" +
                     "astronaut_info.astronaut_fname,\n" +
@@ -150,12 +149,32 @@ public class ServiceApi implements ApiInterface {
     }
 
     @Override
-    public List<Astronaut> getAstronautMissionMileageInformation() {
+    public List<Object[]> getAstronautMissionMileageInformation() {
 
-        List<Astronaut> astronauts = new ArrayList<>();
+        List<Object[]> objects = new ArrayList<>();
 
+        try {
+            Statement statement = connection.createStatement();
+            String sql = "select astronaut_info.astronaut_fname,\n" +
+                    "astronaut_info.astronaut_lname,\n" +
+                    "count(*),\n" +
+                    "sum(mission_info.mission_distance)\n" +
+                    "from astronaut_info,\n" +
+                    "mission_details,\n" +
+                    "mission_info\n" +
+                    "where astronaut_info.astronaut_id = mission_details.astronaut_id\n" +
+                    "and mission_details.mission_id = mission_info.mission_id\n" +
+                    "group by astronaut_fname, astronaut_lname\n" +
+                    "order by astronaut_fname, astronaut_lname asc;\n";
 
-        return astronauts;
+            statement.executeQuery(sql);
+            objects = (List<Object[]>) statement.getResultSet();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return objects;
 
     }
 
