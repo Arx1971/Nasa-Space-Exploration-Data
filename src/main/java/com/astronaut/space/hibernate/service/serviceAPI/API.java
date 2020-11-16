@@ -18,20 +18,18 @@ public class API implements APIInterface {
                 .buildSessionFactory();
         Session session = sessionFactory.getCurrentSession();
 
-        List astronautInfos = new ArrayList<>();
-
         try {
-            astronautInfos = session.createQuery("from AstronautInfo").getResultList();
-
+            session.beginTransaction();
+            List<AstronautInfo> astronautInfos = session.createQuery("from AstronautInfo").getResultList();
             session.getTransaction().commit();
+            return astronautInfos;
 
         } catch (Exception e) {
-
+            e.printStackTrace();
         } finally {
             session.close();
             sessionFactory.close();
         }
-
         return null;
     }
 }
