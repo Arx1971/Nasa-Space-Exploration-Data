@@ -147,35 +147,4 @@ public class ServiceApi implements ApiInterface {
 
         return list;
     }
-
-    @Override
-    public List<Object[]> getAstronautMissionMileageInformation() {
-
-        List<Object[]> objects = new ArrayList<>();
-
-        try {
-            Statement statement = connection.createStatement();
-            String sql = "select astronaut_info.astronaut_fname,\n" +
-                    "astronaut_info.astronaut_lname,\n" +
-                    "count(*),\n" +
-                    "sum(mission_info.mission_distance)\n" +
-                    "from astronaut_info,\n" +
-                    "mission_details,\n" +
-                    "mission_info\n" +
-                    "where astronaut_info.astronaut_id = mission_details.astronaut_id\n" +
-                    "and mission_details.mission_id = mission_info.mission_id\n" +
-                    "group by astronaut_fname, astronaut_lname\n" +
-                    "order by astronaut_fname, astronaut_lname asc;\n";
-
-            statement.executeQuery(sql);
-            objects = (List<Object[]>) statement.getResultSet();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return objects;
-
-    }
-
 }
