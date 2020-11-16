@@ -21,9 +21,7 @@ public class API implements APIInterface {
         sessionFactory = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(AstronautInfo.class)
                 .buildSessionFactory();
 
-        Session session = sessionFactory.getCurrentSession();
-
-        try {
+        try (Session session = sessionFactory.getCurrentSession()) {
             session.beginTransaction();
             List<AstronautInfo> astronautInfos = session.createQuery("from AstronautInfo").getResultList();
             session.getTransaction().commit();
@@ -33,7 +31,6 @@ public class API implements APIInterface {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            session.close();
             sessionFactory.close();
         }
         return null;
