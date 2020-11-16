@@ -18,7 +18,7 @@ public class API implements APIInterface {
     @Override
     public List<AstronautInfo> getAstronautInformation() {
 
-        SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(AstronautInfo.class)
+        sessionFactory = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(AstronautInfo.class)
                 .buildSessionFactory();
 
         Session session = sessionFactory.getCurrentSession();
@@ -27,6 +27,7 @@ public class API implements APIInterface {
             session.beginTransaction();
             List<AstronautInfo> astronautInfos = session.createQuery("from AstronautInfo").getResultList();
             session.getTransaction().commit();
+            session.close();
             return astronautInfos;
 
         } catch (Exception e) {
