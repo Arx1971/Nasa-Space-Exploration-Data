@@ -1,4 +1,3 @@
-
 <!DOCTYPE hibernate-configuration PUBLIC
         "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
@@ -24,6 +23,20 @@
 
         <!-- Set the current session context -->
         <property name="current_session_context_class">thread</property>
+        <mapping class="com.astronaut.space.hibernate.entity.AstronautChildInfoEntity"/>
+        <mapping class="com.astronaut.space.hibernate.entity.AstronautEducationInfoEntity"/>
+        <mapping class="com.astronaut.space.hibernate.entity.AstronautInfoEntity"/>
+        <mapping class="com.astronaut.space.hibernate.entity.AstronautSpouseInfoEntity"/>
+        <mapping class="com.astronaut.space.hibernate.entity.DegreeInfoEntity"/>
+        <mapping class="com.astronaut.space.hibernate.entity.MissionDetailsEntity"/>
+        <mapping class="com.astronaut.space.hibernate.entity.MissionInfoEntity"/>
+        <mapping class="com.astronaut.space.hibernate.entity.MissionLandInfoEntity"/>
+        <mapping class="com.astronaut.space.hibernate.entity.MissionLandingSiteEntity"/>
+        <mapping class="com.astronaut.space.hibernate.entity.MissionLaunchInfoEntity"/>
+        <mapping class="com.astronaut.space.hibernate.entity.MissionObjectiveInfoEntity"/>
+        <mapping class="com.astronaut.space.hibernate.entity.MissionSiteInfoEntity"/>
+        <mapping class="com.astronaut.space.hibernate.entity.SpaceShipInfoEntity"/>
+        <mapping class="com.astronaut.space.hibernate.entity.UniversityInfoEntity"/>
 
     </session-factory>
 
