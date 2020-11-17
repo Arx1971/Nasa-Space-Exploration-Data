@@ -1,4 +1,4 @@
-package com.astronaut.space.hibernate.entity;
+package com.astronaut.space.hibernate.testEntity;
 
 import javax.persistence.*;
 
