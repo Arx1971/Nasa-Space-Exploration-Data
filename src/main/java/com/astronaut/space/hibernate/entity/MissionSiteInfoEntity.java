@@ -2,9 +2,10 @@ package com.astronaut.space.hibernate.entity;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.Objects;
 
 @Entity
-@Table(name = "mission_site_info", schema = "nasa_space_exploration_database", catalog = "")
+@Table(name = "mission_site_info", schema = "nasa_space_exploration_database")
 public class MissionSiteInfoEntity {
     private int missionSiteId;
     private String missionSiteName;
@@ -71,13 +72,13 @@ public class MissionSiteInfoEntity {
         MissionSiteInfoEntity that = (MissionSiteInfoEntity) o;
 
         if (missionSiteId != that.missionSiteId) return false;
-        if (missionSiteName != null ? !missionSiteName.equals(that.missionSiteName) : that.missionSiteName != null)
+        if (!Objects.equals(missionSiteName, that.missionSiteName))
             return false;
-        if (missionSiteCity != null ? !missionSiteCity.equals(that.missionSiteCity) : that.missionSiteCity != null)
+        if (!Objects.equals(missionSiteCity, that.missionSiteCity))
             return false;
-        if (missionSiteState != null ? !missionSiteState.equals(that.missionSiteState) : that.missionSiteState != null)
+        if (!Objects.equals(missionSiteState, that.missionSiteState))
             return false;
-        if (missionSiteCountry != null ? !missionSiteCountry.equals(that.missionSiteCountry) : that.missionSiteCountry != null)
+        if (!Objects.equals(missionSiteCountry, that.missionSiteCountry))
             return false;
 
         return true;

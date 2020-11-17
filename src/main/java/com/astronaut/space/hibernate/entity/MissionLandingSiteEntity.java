@@ -2,6 +2,7 @@ package com.astronaut.space.hibernate.entity;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.Objects;
 
 @Entity
 @Table(name = "mission_landing_site", schema = "nasa_space_exploration_database")
@@ -71,13 +72,13 @@ public class MissionLandingSiteEntity {
         MissionLandingSiteEntity that = (MissionLandingSiteEntity) o;
 
         if (missionLandingSiteId != that.missionLandingSiteId) return false;
-        if (missionLandingSiteName != null ? !missionLandingSiteName.equals(that.missionLandingSiteName) : that.missionLandingSiteName != null)
+        if (!Objects.equals(missionLandingSiteName, that.missionLandingSiteName))
             return false;
-        if (missionLandingSiteCity != null ? !missionLandingSiteCity.equals(that.missionLandingSiteCity) : that.missionLandingSiteCity != null)
+        if (!Objects.equals(missionLandingSiteCity, that.missionLandingSiteCity))
             return false;
-        if (missionLandingSiteState != null ? !missionLandingSiteState.equals(that.missionLandingSiteState) : that.missionLandingSiteState != null)
+        if (!Objects.equals(missionLandingSiteState, that.missionLandingSiteState))
             return false;
-        if (missionLandingSiteCountry != null ? !missionLandingSiteCountry.equals(that.missionLandingSiteCountry) : that.missionLandingSiteCountry != null)
+        if (!Objects.equals(missionLandingSiteCountry, that.missionLandingSiteCountry))
             return false;
 
         return true;
