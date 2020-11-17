@@ -1,9 +1,10 @@
 package com.astronaut.space.hibernate.entity;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
-@Table(name = "astronaut_child_info", schema = "nasa_space_exploration_database", catalog = "")
+@Table(name = "astronaut_child_info", schema = "nasa_space_exploration_database")
 public class AstronautChildInfoEntity {
     private int astronautChildId;
     private String astronautChildName;
@@ -31,7 +32,7 @@ public class AstronautChildInfoEntity {
     }
 
     @Basic
-    @Column(name = "astronaut_id", nullable = true)
+    @Column(name = "astronaut_id", nullable = true, insertable = false, updatable = false)
     public Integer getAstronautId() {
         return astronautId;
     }
@@ -48,9 +49,9 @@ public class AstronautChildInfoEntity {
         AstronautChildInfoEntity that = (AstronautChildInfoEntity) o;
 
         if (astronautChildId != that.astronautChildId) return false;
-        if (astronautChildName != null ? !astronautChildName.equals(that.astronautChildName) : that.astronautChildName != null)
+        if (!Objects.equals(astronautChildName, that.astronautChildName))
             return false;
-        if (astronautId != null ? !astronautId.equals(that.astronautId) : that.astronautId != null) return false;
+        if (!Objects.equals(astronautId, that.astronautId)) return false;
 
         return true;
     }

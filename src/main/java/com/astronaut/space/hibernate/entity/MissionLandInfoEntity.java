@@ -45,7 +45,7 @@ public class MissionLandInfoEntity {
     }
 
     @Basic
-    @Column(name = "mission_landing_site_id", nullable = true)
+    @Column(name = "mission_landing_site_id", nullable = true, insertable = false, updatable = false)
     public Integer getMissionLandingSiteId() {
         return missionLandingSiteId;
     }

@@ -1,9 +1,10 @@
 package com.astronaut.space.hibernate.entity;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
-@Table(name = "astronaut_education_info", schema = "nasa_space_exploration_database", catalog = "")
+@Table(name = "astronaut_education_info", schema = "nasa_space_exploration_database")
 public class AstronautEducationInfoEntity {
     private int astronautEducationId;
     private Integer universityId;
@@ -24,7 +25,7 @@ public class AstronautEducationInfoEntity {
     }
 
     @Basic
-    @Column(name = "university_id", nullable = true)
+    @Column(name = "university_id", nullable = true, insertable = false, updatable = false)
     public Integer getUniversityId() {
         return universityId;
     }
@@ -34,7 +35,7 @@ public class AstronautEducationInfoEntity {
     }
 
     @Basic
-    @Column(name = "degree_id", nullable = true)
+    @Column(name = "degree_id", nullable = true, insertable = false, updatable = false)
     public Integer getDegreeId() {
         return degreeId;
     }
@@ -44,7 +45,7 @@ public class AstronautEducationInfoEntity {
     }
 
     @Basic
-    @Column(name = "astronaut_id", nullable = true)
+    @Column(name = "astronaut_id", nullable = true, insertable = false, updatable = false)
     public Integer getAstronautId() {
         return astronautId;
     }
@@ -61,9 +62,9 @@ public class AstronautEducationInfoEntity {
         AstronautEducationInfoEntity that = (AstronautEducationInfoEntity) o;
 
         if (astronautEducationId != that.astronautEducationId) return false;
-        if (universityId != null ? !universityId.equals(that.universityId) : that.universityId != null) return false;
-        if (degreeId != null ? !degreeId.equals(that.degreeId) : that.degreeId != null) return false;
-        if (astronautId != null ? !astronautId.equals(that.astronautId) : that.astronautId != null) return false;
+        if (!Objects.equals(universityId, that.universityId)) return false;
+        if (!Objects.equals(degreeId, that.degreeId)) return false;
+        if (!Objects.equals(astronautId, that.astronautId)) return false;
 
         return true;
     }

@@ -1,9 +1,10 @@
 package com.astronaut.space.hibernate.entity;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
-@Table(name = "mission_details", schema = "nasa_space_exploration_database", catalog = "")
+@Table(name = "mission_details", schema = "nasa_space_exploration_database")
 public class MissionDetailsEntity {
     private int missionDetailsId;
     private Integer missionId;
@@ -22,7 +23,7 @@ public class MissionDetailsEntity {
     }
 
     @Basic
-    @Column(name = "mission_id", nullable = true)
+    @Column(name = "mission_id", nullable = true, insertable = false, updatable = false)
     public Integer getMissionId() {
         return missionId;
     }
@@ -32,7 +33,7 @@ public class MissionDetailsEntity {
     }
 
     @Basic
-    @Column(name = "astronaut_id", nullable = true)
+    @Column(name = "astronaut_id", nullable = true, insertable = false, updatable = false)
     public Integer getAstronautId() {
         return astronautId;
     }
@@ -49,8 +50,8 @@ public class MissionDetailsEntity {
         MissionDetailsEntity that = (MissionDetailsEntity) o;
 
         if (missionDetailsId != that.missionDetailsId) return false;
-        if (missionId != null ? !missionId.equals(that.missionId) : that.missionId != null) return false;
-        if (astronautId != null ? !astronautId.equals(that.astronautId) : that.astronautId != null) return false;
+        if (!Objects.equals(missionId, that.missionId)) return false;
+        if (!Objects.equals(astronautId, that.astronautId)) return false;
 
         return true;
     }

@@ -2,9 +2,10 @@ package com.astronaut.space.hibernate.entity;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.Objects;
 
 @Entity
-@Table(name = "mission_launch_info", schema = "nasa_space_exploration_database", catalog = "")
+@Table(name = "mission_launch_info", schema = "nasa_space_exploration_database")
 public class MissionLaunchInfoEntity {
     private int missionLaunchId;
     private Integer missionId;
@@ -24,7 +25,7 @@ public class MissionLaunchInfoEntity {
     }
 
     @Basic
-    @Column(name = "mission_id", nullable = true)
+    @Column(name = "mission_id", nullable = true, insertable = false, updatable = false)
     public Integer getMissionId() {
         return missionId;
     }
@@ -44,7 +45,7 @@ public class MissionLaunchInfoEntity {
     }
 
     @Basic
-    @Column(name = "mission_site_id", nullable = false)
+    @Column(name = "mission_site_id", nullable = false, insertable = false, updatable = false)
     public int getMissionSiteId() {
         return missionSiteId;
     }
@@ -62,8 +63,8 @@ public class MissionLaunchInfoEntity {
 
         if (missionLaunchId != that.missionLaunchId) return false;
         if (missionSiteId != that.missionSiteId) return false;
-        if (missionId != null ? !missionId.equals(that.missionId) : that.missionId != null) return false;
-        if (missionLaunchDate != null ? !missionLaunchDate.equals(that.missionLaunchDate) : that.missionLaunchDate != null)
+        if (!Objects.equals(missionId, that.missionId)) return false;
+        if (!Objects.equals(missionLaunchDate, that.missionLaunchDate))
             return false;
 
         return true;

@@ -2,9 +2,10 @@ package com.astronaut.space.hibernate.entity;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.Objects;
 
 @Entity
-@Table(name = "mission_info", schema = "nasa_space_exploration_database", catalog = "")
+@Table(name = "mission_info", schema = "nasa_space_exploration_database")
 public class MissionInfoEntity {
     private int missionId;
     private String missionName;
@@ -49,7 +50,7 @@ public class MissionInfoEntity {
     }
 
     @Basic
-    @Column(name = "mission_objective_id", nullable = true)
+    @Column(name = "mission_objective_id", nullable = true, insertable = false, updatable = false)
     public Integer getMissionObjectiveId() {
         return missionObjectiveId;
     }
@@ -69,7 +70,7 @@ public class MissionInfoEntity {
     }
 
     @Basic
-    @Column(name = "space_ship_id", nullable = true)
+    @Column(name = "space_ship_id", nullable = true, insertable = false, updatable = false)
     public Integer getSpaceShipId() {
         return spaceShipId;
     }
@@ -87,12 +88,12 @@ public class MissionInfoEntity {
 
         if (missionId != that.missionId) return false;
         if (Double.compare(that.missionDistance, missionDistance) != 0) return false;
-        if (missionName != null ? !missionName.equals(that.missionName) : that.missionName != null) return false;
-        if (missionDestination != null ? !missionDestination.equals(that.missionDestination) : that.missionDestination != null)
+        if (!Objects.equals(missionName, that.missionName)) return false;
+        if (!Objects.equals(missionDestination, that.missionDestination))
             return false;
-        if (missionObjectiveId != null ? !missionObjectiveId.equals(that.missionObjectiveId) : that.missionObjectiveId != null)
+        if (!Objects.equals(missionObjectiveId, that.missionObjectiveId))
             return false;
-        if (spaceShipId != null ? !spaceShipId.equals(that.spaceShipId) : that.spaceShipId != null) return false;
+        if (!Objects.equals(spaceShipId, that.spaceShipId)) return false;
 
         return true;
     }
