@@ -2,9 +2,10 @@ package com.astronaut.space.hibernate.entity;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.Objects;
 
 @Entity
-@Table(name = "space_ship_info", schema = "nasa_space_exploration_database", catalog = "")
+@Table(name = "space_ship_info", schema = "nasa_space_exploration_database")
 public class SpaceShipInfoEntity {
     private int spaceShipId;
     private String spaceShipName;
@@ -38,7 +39,7 @@ public class SpaceShipInfoEntity {
         SpaceShipInfoEntity that = (SpaceShipInfoEntity) o;
 
         if (spaceShipId != that.spaceShipId) return false;
-        if (spaceShipName != null ? !spaceShipName.equals(that.spaceShipName) : that.spaceShipName != null)
+        if (!Objects.equals(spaceShipName, that.spaceShipName))
             return false;
 
         return true;
