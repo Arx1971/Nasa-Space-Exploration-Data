@@ -11,7 +11,7 @@ public class AstronautInfoEntity {
     private int astronautId;
     private String astronautFname;
     private String astronautLname;
-    private Date astronautDob;
+    private String astronautDob;
     private String astronautCountry;
     private String astronautGender;
     private Collection<AstronautChildInfoEntity> astronautChildInfosByAstronautId;
@@ -51,11 +51,11 @@ public class AstronautInfoEntity {
 
     @Basic
     @Column(name = "astronaut_dob", nullable = false)
-    public Date getAstronautDob() {
+    public String getAstronautDob() {
         return astronautDob;
     }
 
-    public void setAstronautDob(Date astronautDob) {
+    public void setAstronautDob(String astronautDob) {
         this.astronautDob = astronautDob;
     }
 
@@ -145,5 +145,21 @@ public class AstronautInfoEntity {
 
     public void setMissionDetailsByAstronautId(Collection<MissionDetailsEntity> missionDetailsByAstronautId) {
         this.missionDetailsByAstronautId = missionDetailsByAstronautId;
+    }
+
+    @Override
+    public String toString() {
+        return "AstronautInfoEntity{" +
+                "astronautId=" + astronautId +
+                ", astronautFname='" + astronautFname + '\'' +
+                ", astronautLname='" + astronautLname + '\'' +
+                ", astronautDob='" + astronautDob + '\'' +
+                ", astronautCountry='" + astronautCountry + '\'' +
+                ", astronautGender='" + astronautGender + '\'' +
+                ", astronautChildInfosByAstronautId=" + astronautChildInfosByAstronautId +
+                ", astronautEducationInfosByAstronautId=" + astronautEducationInfosByAstronautId +
+                ", astronautSpouseInfosByAstronautId=" + astronautSpouseInfosByAstronautId +
+                ", missionDetailsByAstronautId=" + missionDetailsByAstronautId +
+                '}';
     }
 }

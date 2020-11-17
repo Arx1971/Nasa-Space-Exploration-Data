@@ -51,9 +51,7 @@ public class AstronautSpouseInfoEntity {
         if (astronautSpouseId != that.astronautSpouseId) return false;
         if (!Objects.equals(astronautSpouseName, that.astronautSpouseName))
             return false;
-        if (!Objects.equals(astronautId, that.astronautId)) return false;
-
-        return true;
+        return Objects.equals(astronautId, that.astronautId);
     }
 
     @Override
