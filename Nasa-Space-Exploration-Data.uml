@@ -91,9 +91,7 @@
     </edge>
   </edges>
   <settings layout="Hierarchic Group" zoom="0.82220367278798" x="589.0" y="526.0" />
-  <SelectedNodes>
-    <node>MissionLandInfoEntity#file://C:/Users/rahin/source-code/IdeaProjects/Nasa-Space-Exploration-Data/src/main/java/com/astronaut/space/hibernate/entity/MissionLandInfoEntity.java</node>
-  </SelectedNodes>
+  <SelectedNodes />
   <Categories>
     <Category>Properties</Category>
     <Category>Embeddables</Category>
