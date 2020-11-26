@@ -1,7 +1,7 @@
-package com.astronaut.space.hibernate.service.serviceAPI;
+package com.astronaut.space.hibernate.dao.daoService;
 
 import com.astronaut.space.hibernate.entity.AstronautInfoEntity;
-import com.astronaut.space.hibernate.service.serviceInterface.APIInterface;
+import com.astronaut.space.hibernate.dao.daoInterface.APIInterface;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;

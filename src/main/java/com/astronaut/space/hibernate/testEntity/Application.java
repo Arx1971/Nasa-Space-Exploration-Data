@@ -1,8 +1,7 @@
 package com.astronaut.space.hibernate.testEntity;
 
 import com.astronaut.space.hibernate.entity.AstronautInfoEntity;
-import com.astronaut.space.hibernate.testEntity.AstronautInfo;
-import com.astronaut.space.hibernate.service.serviceAPI.API;
+import com.astronaut.space.hibernate.dao.daoService.API;
 
 import java.util.List;
 
