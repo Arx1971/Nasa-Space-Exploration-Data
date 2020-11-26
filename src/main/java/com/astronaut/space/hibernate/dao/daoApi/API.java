@@ -1,5 +1,7 @@
 package com.astronaut.space.hibernate.dao.daoApi;
 
+import com.astronaut.space.hibernate.entity.AstronautChildInfoEntity;
+import com.astronaut.space.hibernate.entity.AstronautEducationInfoEntity;
 import com.astronaut.space.hibernate.entity.AstronautInfoEntity;
 import com.astronaut.space.hibernate.dao.daoInterface.APIInterface;
 import org.hibernate.Session;
