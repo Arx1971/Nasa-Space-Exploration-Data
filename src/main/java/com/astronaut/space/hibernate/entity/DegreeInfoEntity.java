@@ -7,7 +7,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "degree_info", schema = "nasa_space_exploration_database")
 public class DegreeInfoEntity {
-    private Integer degreeId;
+    private int degreeId;
     private String degreeName;
     private Collection<AstronautEducationInfoEntity> astronautEducationInfosByDegreeId;
 

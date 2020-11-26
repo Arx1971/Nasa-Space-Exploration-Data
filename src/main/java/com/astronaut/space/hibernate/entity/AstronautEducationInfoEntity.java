@@ -6,7 +6,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "astronaut_education_info", schema = "nasa_space_exploration_database")
 public class AstronautEducationInfoEntity {
-    private Integer astronautEducationId;
+    private int astronautEducationId;
     private Integer universityId;
     private Integer degreeId;
     private Integer astronautId;
@@ -106,18 +106,5 @@ public class AstronautEducationInfoEntity {
 
     public void setAstronautInfoByAstronautId(AstronautInfoEntity astronautInfoByAstronautId) {
         this.astronautInfoByAstronautId = astronautInfoByAstronautId;
-    }
-
-    @Override
-    public String toString() {
-        return "AstronautEducationInfoEntity{" +
-                "astronautEducationId=" + astronautEducationId +
-                ", universityId=" + universityId +
-                ", degreeId=" + degreeId +
-                ", astronautId=" + astronautId +
-                ", universityInfoByUniversityId=" + universityInfoByUniversityId +
-                ", degreeInfoByDegreeId=" + degreeInfoByDegreeId +
-                ", astronautInfoByAstronautId=" + astronautInfoByAstronautId +
-                '}';
     }
 }

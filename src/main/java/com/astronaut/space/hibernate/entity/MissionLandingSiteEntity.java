@@ -7,7 +7,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "mission_landing_site", schema = "nasa_space_exploration_database")
 public class MissionLandingSiteEntity {
-    private Integer missionLandingSiteId;
+    private int missionLandingSiteId;
     private String missionLandingSiteName;
     private String missionLandingSiteCity;
     private String missionLandingSiteState;
