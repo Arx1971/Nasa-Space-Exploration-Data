@@ -6,7 +6,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "mission_details", schema = "nasa_space_exploration_database")
 public class MissionDetailsEntity {
-    private int missionDetailsId;
+    private Integer missionDetailsId;
     private Integer missionId;
     private Integer astronautId;
     private MissionInfoEntity missionInfoByMissionId;

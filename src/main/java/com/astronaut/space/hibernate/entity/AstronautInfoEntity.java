@@ -8,7 +8,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "astronaut_info", schema = "nasa_space_exploration_database")
 public class AstronautInfoEntity {
-    private int astronautId;
+    private Integer astronautId;
     private String astronautFname;
     private String astronautLname;
     private String astronautDob;

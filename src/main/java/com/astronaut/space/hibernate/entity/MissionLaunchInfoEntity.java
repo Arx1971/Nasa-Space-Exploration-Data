@@ -7,10 +7,10 @@ import java.util.Objects;
 @Entity
 @Table(name = "mission_launch_info", schema = "nasa_space_exploration_database")
 public class MissionLaunchInfoEntity {
-    private int missionLaunchId;
+    private Integer missionLaunchId;
     private Integer missionId;
     private Date missionLaunchDate;
-    private int missionSiteId;
+    private Integer missionSiteId;
     private MissionInfoEntity missionInfoByMissionId;
     private MissionSiteInfoEntity missionSiteInfoByMissionSiteId;
 

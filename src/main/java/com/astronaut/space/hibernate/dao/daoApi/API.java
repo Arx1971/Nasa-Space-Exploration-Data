@@ -1,4 +1,4 @@
-package com.astronaut.space.hibernate.dao.daoService;
+package com.astronaut.space.hibernate.dao.daoApi;
 
 import com.astronaut.space.hibernate.entity.AstronautInfoEntity;
 import com.astronaut.space.hibernate.dao.daoInterface.APIInterface;
@@ -31,6 +31,11 @@ public class API implements APIInterface {
             session.close();
             sessionFactory.close();
         }
+        return null;
+    }
+
+    @Override
+    public AstronautInfoEntity getAstronautInformation(Integer id) {
         return null;
     }
 }
