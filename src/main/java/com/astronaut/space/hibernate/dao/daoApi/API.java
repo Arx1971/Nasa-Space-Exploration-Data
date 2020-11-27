@@ -25,6 +25,7 @@ public class API implements APIInterface {
             List<AstronautInfoEntity> astronautInfoEntities = session.createQuery("from AstronautInfoEntity").getResultList();
             System.out.println(astronautInfoEntities);
             session.getTransaction().commit();
+            //return astronautInfoEntities;
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

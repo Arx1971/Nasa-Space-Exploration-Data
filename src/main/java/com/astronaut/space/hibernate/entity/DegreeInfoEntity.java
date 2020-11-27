@@ -59,4 +59,12 @@ public class DegreeInfoEntity {
     public void setAstronautEducationInfosByDegreeId(Collection<AstronautEducationInfoEntity> astronautEducationInfosByDegreeId) {
         this.astronautEducationInfosByDegreeId = astronautEducationInfosByDegreeId;
     }
+
+    @Override
+    public String toString() {
+        return "DegreeInfoEntity{" +
+                "degreeId=" + degreeId +
+                ", degreeName='" + degreeName + '\'' +
+                '}';
+    }
 }

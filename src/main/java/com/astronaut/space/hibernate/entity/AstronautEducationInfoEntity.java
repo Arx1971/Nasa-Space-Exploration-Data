@@ -107,4 +107,12 @@ public class AstronautEducationInfoEntity {
     public void setAstronautInfoByAstronautId(AstronautInfoEntity astronautInfoByAstronautId) {
         this.astronautInfoByAstronautId = astronautInfoByAstronautId;
     }
+
+    @Override
+    public String toString() {
+        return "AstronautEducationInfoEntity{" +
+                "universityInfoByUniversityId=" + universityInfoByUniversityId +
+                ", degreeInfoByDegreeId=" + degreeInfoByDegreeId +
+                '}';
+    }
 }

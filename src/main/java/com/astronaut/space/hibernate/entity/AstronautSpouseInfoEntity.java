@@ -71,4 +71,12 @@ public class AstronautSpouseInfoEntity {
     public void setAstronautInfoByAstronautId(AstronautInfoEntity astronautInfoByAstronautId) {
         this.astronautInfoByAstronautId = astronautInfoByAstronautId;
     }
+
+    @Override
+    public String toString() {
+        return "AstronautSpouseInfoEntity{" +
+                "astronautSpouseId=" + astronautSpouseId +
+                ", astronautSpouseName='" + astronautSpouseName + '\'' +
+                '}';
+    }
 }

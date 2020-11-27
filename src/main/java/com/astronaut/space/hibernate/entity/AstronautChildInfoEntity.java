@@ -64,7 +64,7 @@ public class AstronautChildInfoEntity {
         return result;
     }
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "astronaut_id", referencedColumnName = "astronaut_id")
     public AstronautInfoEntity getAstronautInfoByAstronautId() {
         return astronautInfoByAstronautId;
@@ -72,5 +72,13 @@ public class AstronautChildInfoEntity {
 
     public void setAstronautInfoByAstronautId(AstronautInfoEntity astronautInfoByAstronautId) {
         this.astronautInfoByAstronautId = astronautInfoByAstronautId;
+    }
+
+    @Override
+    public String toString() {
+        return "AstronautChildInfoEntity{" +
+                "astronautChildId=" + astronautChildId +
+                ", astronautChildName='" + astronautChildName + '\'' +
+                '}';
     }
 }
