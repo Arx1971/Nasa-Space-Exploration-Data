@@ -5,14 +5,18 @@ import com.astronaut.space.hibernate.dao.daoInterface.APIInterface;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
 public class API implements APIInterface {
 
     @Override
+    @Transactional
     public List<AstronautInfoEntity> getAstronautInformation() {
 
         SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").
@@ -20,18 +24,18 @@ public class API implements APIInterface {
 
         Session session = sessionFactory.getCurrentSession();
 
-        try {
-            session.beginTransaction();
-            List<AstronautInfoEntity> astronautInfoEntities = session.createQuery("from AstronautInfoEntity").getResultList();
-            System.out.println(astronautInfoEntities);
-            session.getTransaction().commit();
-            //return astronautInfoEntities;
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            session.close();
-            sessionFactory.close();
-        }
-        return null;
+        List<AstronautInfoEntity> astronautInfoEntities = new ArrayList<>();
+
+
+        session.beginTransaction();
+        Query<AstronautInfoEntity> query = session.createQuery("select c from AstronautInfoEntity c ",
+                AstronautInfoEntity.class);
+
+        astronautInfoEntities = query.getResultList();
+
+        session.getTransaction().commit();
+
+        return astronautInfoEntities;
+
     }
 }
