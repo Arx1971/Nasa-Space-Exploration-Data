@@ -16,7 +16,7 @@ import java.util.Properties;
 
 public class HibernateUtility {
 
-    /*public static Session getCurrentSession() {
+    public static Session getCurrentSession() {
         // Hibernate 5.4 SessionFactory example without XML
         Map<String, String> settings = new HashMap<>();
         settings.put("connection.driver_class", "com.mysql.jdbc.Driver");
@@ -55,6 +55,6 @@ public class HibernateUtility {
         SessionFactory sessionFactory = metadata.getSessionFactoryBuilder().build();
 
         return sessionFactory.getCurrentSession();
-    }*/
+    }
 
 }

@@ -33,6 +33,8 @@ public class API implements APIInterface {
 
         astronautInfoEntities = query.getResultList();
 
+        System.out.println(astronautInfoEntities);
+
         session.getTransaction().commit();
 
         return astronautInfoEntities;
